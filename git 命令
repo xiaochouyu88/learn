@@ -1,0 +1,104 @@
+
+
+git config --global user.name "username"
+git config --global user.email "email@example.com"
+
+
+
+git clone http://10.8.128.6:7000/aixinproa/train.git uat   从某个分支上拉代码
+ 
+git clone http://10.8.128.6:7000/aixinproa/train.git  主分支上拉代码
+
+
+git  init    通过git init命令把这个目录变成Git可以管理的仓库：    
+
+
+
+git commit:将本地修改过的文件提交到本地库
+
+git push:将本地库中的最新信息发送给远程库
+
+git pull:从远程获取最新的版本到本地，并自动merge
+
+git fetch:从远程获取最新版本到本地，不会自动merge
+
+git merge:用于从指定的commit(s)合并到当前分支，用来合并两个分支
+
+git merge -b 将b分支合并到当前分支
+
+git pull 相当于 git fetch + git merge
+
+创建版本库
+cd：进入某个目录
+
+mkdir：创建一个文件
+
+pwd：显示当前的目录路径
+
+添加文件到版本库
+git add：将文件提交到暂存区
+
+git commit -m  '注释内容'：将暂存区文件提交到仓库（单引号内为注释）
+
+检查是否有未提交的文件
+
+git status：检查当前文件状态
+
+检查文件是否被修改
+git diff：查看文件修改的内容
+
+查看历史变更记录
+
+git log：获得历史修改记录   按q即可退出历史记录返回上一级
+
+git log --pretty=oneline：使记录只显示主要的内容，一行显示
+
+版本回退
+
+cat：查看文件内容
+
+git reset --hard HEAD^：回退到上一个版本
+
+git reflog：获取历史版本号
+
+git reset --hard 版本号：回退到该版本号对应的版本
+
+
+
+git branch  查看当前分支
+
+git branch -a 查看远程分支  都有哪些分支
+
+
+git checkout -b dev origin/dev  切换到dev分支
+
+
+git checkout master  切回到主分支
+
+git checkout -- <file>  把文件在自己工作区修改的内容撤销
+git checkout -- readme.txt  
+这里有两种情况：
+一种是readme.txt自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；
+一种是readme.txt已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。
+
+git reset HEAD <file>可以把暂存区的修改撤销掉（unstage），重新放回工作区：
+git reset命令既可以回退版本，也可以把暂存区的修改回退到工作区。当我们用HEAD时，表示最新的版本。
+
+rm test.txt  删除文件
+一是确实要从版本库中删除该文件，那就用命令git rm删掉，并且git commit：
+命令git rm用于删除一个文件。如果一个文件已经被提交到版本库，那么你永远不用担心误删，但是要小心，你只能恢复文件到最新版本，你会丢失最近一次提交后你修改的内容。
+
+
+
+
+PS：如果要回退到上上个版本，可以使用git reset --hard HEAD^^命令，但是这样稍显麻烦，如果回退到100个版本之前，只需要执行这个命令即可：git reset --hard HEAD~100；
+
+
+git remote add origin https://github.com/zwg481026/APITest.git是将你本地的仓库和github仓库进行关联，在操作时候，需要将github地址替换为自己的，否则无法推送！
+
+
+git remote add origin git@github.com:xiaochouyu88/learn.git  将本地仓库与github仓库进行关联  xiaochouyu88  github的用户名  learn github上自己建的repositories
+
+git push -u origin master  将本地库上所有的内容推送的远程库上
+
+
